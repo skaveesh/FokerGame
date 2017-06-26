@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Box?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.chart.BubbleChart?>
-<?import javafx.scene.control.Button?>
-<VBox alignment="center" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.112" fx:controller="foker.Controller">
+<VBox alignment="center" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="foker.controller.ControllerNameChange">
 
-    <Label text="I love bacon" />
-    <Button text="click" />
+    <Label text="Set your name"/>
+    <TextField prefHeight="25.0" prefWidth="337.0" fx:id="textFieldSetPlayerName" />
+    <Button fx:id="buttonChangePlayerName" onAction="#handleChangeName" text="click"/>
 </VBox>

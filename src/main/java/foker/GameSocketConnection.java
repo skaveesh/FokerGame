@@ -17,13 +17,13 @@ import java.net.URI;
  */
 public class GameSocketConnection extends WebSocketClient {
 
-    private static int PLAYER_ID;
+    public static int PLAYER_ID;
 
-    public GameSocketConnection(URI serverUri, Draft draft) {
+    GameSocketConnection(URI serverUri, Draft draft) {
         super(serverUri, draft);
     }
 
-    public GameSocketConnection(URI serverURI) {
+    GameSocketConnection(URI serverURI) {
         super(serverURI);
     }
 
@@ -35,6 +35,9 @@ public class GameSocketConnection extends WebSocketClient {
 
     @Override
     public void onMessage(String message) {
+
+        System.out.println("Server returned data:");
+        System.out.println(message);
 
         boolean isJsonObject;
         JSONObject jsonObject = new JSONObject();
@@ -49,11 +52,10 @@ public class GameSocketConnection extends WebSocketClient {
         }
 
         if (isJsonObject && jsonObject.has("PLAYERID")) {
-            PlayerIdData player = gson.fromJson(jsonObject.getJSONObject("PLAYERID").toString(), PlayerIdData.class);
-            PLAYER_ID = player.getPLAYERID().getPlayerId();
-            System.out.println(PLAYER_ID);
+            PlayerIdData playerIdData = gson.fromJson(message, PlayerIdData.class);
+            PLAYER_ID = playerIdData.getPLAYERID().getPlayerId();
         } else if(isJsonObject && jsonObject.has("PLAYERREADY")){
-            PlayerReadyData playerReadyData = gson.fromJson(jsonObject.getJSONObject("PLAYERREADY").toString(), PlayerReadyData.class);
+            PlayerReadyData playerReadyData = gson.fromJson(message, PlayerReadyData.class);
 
             for(PLAYERREADY playerready : playerReadyData.getPLAYERREADY()){
                 if(!playerready.getPlayerReady()){
@@ -71,6 +73,6 @@ public class GameSocketConnection extends WebSocketClient {
     @Override
     public void onError(Exception ex) {
         System.err.println("an error occurred:" + ex);
-
+    ex.printStackTrace();
     }
 }

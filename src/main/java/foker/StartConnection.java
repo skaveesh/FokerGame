@@ -12,17 +12,22 @@ import java.util.Scanner;
  */
 public class StartConnection implements Runnable {
 
-    Thread startConnectionThread;
+    private static WebSocketClient client = null;
 
     StartConnection() {
-        startConnectionThread = new Thread(this);
+        Thread startConnectionThread = new Thread(this);
 
         startConnectionThread.start();
     }
 
+    public static void sendMessage(String message) {
+        if (client != null)
+            client.send(message);
+    }
+
     @Override
     public void run() {
-        WebSocketClient client = null;
+
         try {
             client = new GameSocketConnection(new URI("ws://awseb-e-c-AWSEBLoa-29LKENWCHRJI-2115051294.us-west-2.elb.amazonaws.com:8080/gamenotification"), new Draft_6455());
         } catch (URISyntaxException e) {
