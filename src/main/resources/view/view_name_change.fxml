@@ -5,10 +5,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="center" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="foker.controller.ControllerNameChange">
+<VBox alignment="center" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="foker.controller.ControllerNameChange">
 
-    <Label text="Set your name"/>
-    <TextField prefHeight="25.0" prefWidth="337.0" fx:id="textFieldSetPlayerName" />
-    <Button fx:id="buttonChangePlayerName" onAction="#handleChangeName" text="click"/>
+    <Label text="Set your name" />
+    <TextField fx:id="textFieldSetPlayerName" prefHeight="25.0" prefWidth="337.0" />
+    <Button onAction="#handleChangeName" text="OK" />
 </VBox>

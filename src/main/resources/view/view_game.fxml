@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="foker.controller.ControllerGame">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Game" />
+        <Button fx:id="buttonCard1" layoutX="111.0" layoutY="330.0" mnemonicParsing="false" text="Button" />
+        <Button fx:id="buttonCard2" layoutX="195.0" layoutY="330.0" mnemonicParsing="false" text="Button" />
+        <Button fx:id="buttonCard3" layoutX="279.0" layoutY="330.0" mnemonicParsing="false" text="Button" />
+        <Button fx:id="buttonCard4" layoutX="366.0" layoutY="330.0" mnemonicParsing="false" text="Button" />
+        <Button fx:id="buttonCard5" layoutX="465.0" layoutY="330.0" mnemonicParsing="false" text="Button" />
+        <Label layoutX="290.0" layoutY="287.0" text="You" />
+        <Label fx:id="labelMyName" layoutX="275.0" layoutY="304.0" text="My Name" />
+      <Label fx:id="labelScore" layoutX="494.0" layoutY="14.0" text="Score : 0" />
+      <AnchorPane fx:id="paneGameCard" layoutY="35.0" prefHeight="254.0" prefWidth="592.0" />
+    </children>
+</AnchorPane>
